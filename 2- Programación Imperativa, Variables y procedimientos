@@ -1,0 +1,134 @@
+Ejercicio 3: Martin Fierro
+
+Veamos si va quedando claro, definí la function versosMartinFierro que imprima por pantalla los primeros versos del Martín Fierro:
+
+Aquí me pongo a cantar
+Al compás de la vigüela;
+Que el hombre que lo desvela
+Una pena extraordinaria
+
+Esta function debe retornar 0
+
+function versosMartinFierro() {
+  imprimir("Aquí me pongo a cantar");
+  imprimir("Al compás de la vigüela;");
+  imprimir("Que el hombre que lo desvela");
+  imprimir("Una pena extraordinaria");
+  return 0;
+}
+
+----------------------------------------------
+Ejercicio 4: ¿Y los procedimientos?
+
+Envía esta nueva versión de versosMartinFierro
+
+function versosMartinFierro() {
+    imprimir("Aquí me pongo a cantar");
+    imprimir("Al compás de la vigüela;");
+    imprimir("Que el hombre que lo desvela");
+    imprimir("Una pena extraordinaria");
+}
+
+----------------------------------------------
+Ejercicio 5: ¿Y el program?
+
+Copiá y enviá este programa
+
+imprimir("Tirando dados");
+imprimir("La primera tirada dio " + tirarDado());
+imprimir("La segunda tirada dio " + tirarDado());
+imprimir("La tercera tirada dio " + tirarDado());
+
+-----------------------------------------------
+Ejercicio 6: Coerciones
+
+Veamos si queda claro, definí una función elefantesEquilibristas, que tome un número de elefantes y devuelva una rima de una conocida canción:
+
+ elefantesEquilibristas(3)
+"3 elefantes se balanceaban"
+ elefantesEquilibristas(462)
+"462 elefantes se balanceaban"
+
+function elefantesEquilibristas(n) {
+  return n + " elefantes se balanceaban";
+}
+
+---------------------------------------------
+Ejercicio 7: El círculo de la vida
+
+Definí las funciones perimetroCirculo y areaCirculo que reciben el radio de un círculo y a partir del mismo nos retornan su perímetro y su área.
+
+function perimetroCirculo(radio) {
+  return radio * 2 * 3.14159265358979;
+}
+
+function areaCirculo(radio) {
+  return radio * radio * 3.14159265358979;
+}
+
+---------------------------------------------
+Ejercicio 8: PIenso que así es más fácil
+
+Cambiá los lugares donde aparece 3.14159265358979 por la variable pi en las funciones que tenemos definidas.
+
+let pi = 3.14159265358979;
+
+function perimetroCirculo(radio) {
+  return radio * 2 * pi;
+}
+
+function areaCirculo(radio) {
+  return radio * radio * pi;
+}
+
+----------------------------------------------
+Ejercicio 10: Variables globales
+
+Veamos si queda claro: definí una función ascensorSobrecargado, que toma una cantidad de personas y retorna si entre todas superan la carga máxima de 300 kg.
+
+Tené en cuenta que nuestra función va a utilizar dos variables globales:
+
+pesoPromedioPersonaEnKilogramos, la cual ya está declarada,
+cargaMaximaEnKilogramos que vas a tener que declarar.
+
+let cargaMaximaEnKilogramos=300;
+
+function ascensorSobrecargado(cantidadPersonas) {
+  return cantidadPersonas * pesoPromedioPersonaEnKilogramos >= cargaMaximaEnKilogramos;
+}
+
+----------------------------------------------
+Ejercicio 11: La buena fortuna
+
+¡Ahora vamos a hacer algo de dinero !
+
+Definí el procedimiento aumentarFortuna que duplique el valor de la variable global pesosEnMiBilletera. No declares la variable, ya lo hicimos por vos (con una cantidad secreta de dinero) .
+
+function aumentarFortuna() {
+  pesosEnMiBilletera = pesosEnMiBilletera * 2;
+}
+
+---------------------------------------------
+Ejercicio 12: ¿Y esto cuánto vale?
+
+Vimos que una variable solo puede tener un valor, entonces cada vez que le asignamos uno nuevo, perdemos el anterior. Entonces, dada la función:
+
+function cuentaExtravagante() {
+  let numero = 8;
+  numero *= 2;
+  numero += 4;
+  return numero;
+}
+
+¿Qué retorna cuentaExtravagante?
+
+20
+
+--------------------------------------------
+
+
+
+
+
+
+

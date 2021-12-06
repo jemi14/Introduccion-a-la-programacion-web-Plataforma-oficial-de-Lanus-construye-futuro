@@ -1,0 +1,301 @@
+Ejercicio 1: Creando a Pepita
+
+¿Te animás a modificar nuestro código para crear a Pepita?
+
+module Pepita
+end
+
+-----------------------------------------
+Ejercicio 3: Los mejores, los únicos, los métodos en objetos
+
+Agregale a la definición de Pepita los métodos necesarios para que pueda responder a los mensajes cantar!, comer_lombriz! y volar_en_circulos!.
+
+module Pepita
+  def self.cantar!
+  end
+  def self.comer_lombriz!
+  end
+  def self.volar_en_circulos!
+  end
+end
+
+------------------------------------------
+Ejercicio 5: Atributos
+
+Sabiendo esto:
+
+cambiá la definición del método volar_en_circulos! para que utilice la expresión simplificada;
+definí la versión correcta del método comer_lombriz!, que provoca que Pepita gane 20 puntos de energía;
+
+module Pepita
+    @energia = 100
+  
+    def self.volar_en_circulos!
+        @energia -= 10
+    end
+  
+    def self.comer_lombriz!
+      @energia += 20
+    end
+  
+  def self.energia
+    @energia
+  end
+end
+
+------------------------------------------
+Ejercicio 6: Conociendo el país
+
+Creá un atributo ciudad en Pepita: la ciudad donde actualmente está nuestra golondrina.
+Hacé que la ciudad inicial de pepita sea Iruya.
+Definí un método volar_hacia! en Pepita, que tome como argumento otra ciudad y haga lo necesario.
+
+module Pepita
+    @energia = 100
+    @ciudad = Iruya
+  
+    def self.volar_en_circulos!
+        @energia -= 10
+    end
+  
+    def self.comer_lombriz!
+      @energia += 20
+    end
+  
+  def self.volar_hacia!(destino)
+    @energia -=100
+    @ciudad = destino
+  end 
+end
+
+-------------------------------------------
+Ejercicio 8: Cuestión de estado
+
+Veamos si se entiende: mirá los objetos en la solapa Biblioteca y escribí el estado de cada uno.
+
+estado_pepita = %w(
+  energia
+  ciudad
+)
+  
+estado_kiano1100 = %w(
+
+)
+  
+estado_rolamotoC115 = %w(
+
+) 
+
+estado_enrique = %w(
+  celular
+  dinero_en_billetera
+  frase_favorita
+)
+
+---------------------------------------------
+Ejercicio 9: ¿Dónde estás?
+
+Inspirándote en la definición de energia, definí el método ciudad que retorne la ubicación de nuestra golondrina.
+
+module Pepita
+  @energia = 100
+  @ciudad = Obera
+  
+  def self.energia
+    @energia 
+  end
+  
+  def self.cantar!
+    'pri pri pri'
+  end
+  
+  def self.comer_lombriz!
+    @energia += 20
+  end
+  
+  def self.volar_en_circulos!
+    @energia -= 10
+  end
+  
+  def self.volar_hacia!(destino)
+    @energia -= 100
+    @ciudad = destino
+  end
+  
+  def self.ciudad
+    @ciudad
+  end
+end
+
+--------------------------------------------
+Ejercicio 10: Volando alto
+
+Sabiendo esto:
+
+Definí el objeto que representa a BuenosAires.
+Definí en Obera, Iruya y BuenosAires un método kilometro que retorne la altura a la que se encuentran, según el esquema. ¡Cuidado! No tenés que guardar el valor en un atributo @kilometro sino simplemente retornar el número que corresponde.
+Modificá el método volar_hacia! de Pepita para hacer el cálculo de la distancia y alterar su energía. Para acceder al kilometro inicial de Pepita tenes que hacer @ciudad.kilometro.
+
+module BuenosAires
+  def self.kilometro
+    return 0
+  end
+end
+
+module Obera
+  def self.kilometro
+    return 1040
+  end
+end
+
+module Iruya
+  def self.kilometro
+    return 1710
+  end  
+end
+
+module Pepita
+  @energia = 1000
+  @ciudad = Obera
+  
+  def self.energia
+    @energia 
+  end
+  
+  def self.ciudad
+    @ciudad
+  end
+  
+  def self.cantar!
+    'pri pri pri'
+  end
+  
+  def self.comer_lombriz!
+    @energia += 20
+  end
+  
+  def self.volar_en_circulos!
+    @energia -= 10
+  end
+  
+  def self.volar_hacia!(destino)
+    @energia -=(@ciudad.kilometro - destino.kilometro).abs*0.5
+    @ciudad = destino
+  end
+end
+
+----------------------------------------------------
+Ejercicio 11: Delegar es bueno
+
+Pero esto se puede mejorar un poco más. Delegá el cálculo de la distancia en un método distancia_a, que tome un destino y devuelva la distancia desde la ciudad actual hasta el destino.
+
+module Pepita
+  @energia = 1000
+  @ciudad = Obera
+  
+  def self.energia
+    @energia 
+  end
+  
+  def self.ciudad
+    @ciudad
+  end
+  
+  def self.cantar!
+    'pri pri pri'
+  end
+  
+  def self.comer_lombriz!
+    @energia += 20
+  end
+  
+  def self.volar_en_circulos!
+    @energia -= 10
+  end
+  
+  def self.volar_hacia!(destino)
+    self.gastar_energia!(destino)
+    @ciudad = destino
+  end
+  
+  def self.distancia_a(destino)
+    (ciudad.kilometro - destino.kilometro).abs
+  end
+
+  def self.gastar_energia!(destino)
+    @energia -= (distancia_a(destino)) / 2
+  end
+end
+
+------------------------------------------------------
+Ejercicio 12: ¿Es mi responsabilidad?
+
+Modificá la solución del ejercicio anterior para que sean las ciudades las que calculan las distancias. Pensá que no solo Obera debe tener este método, sino también BuenosAires e Iruya, para cuando tenga que volver.
+
+module Obera
+  def self.kilometro
+    1040
+  end
+def self.distancia_a(destino)
+  distancia_a = (self.kilometro - destino.kilometro).abs
+end
+end
+
+module Iruya
+  def self.kilometro
+    1710
+  end  
+  def self.distancia_a(destino)
+  distancia_a = (self.kilometro - destino.kilometro).abs
+end
+end
+
+module BuenosAires
+  def self.kilometro
+    0
+  end  
+  def self.distancia_a(destino)
+  distancia_a = (self.kilometro - destino.kilometro).abs
+end
+end
+
+module Pepita
+  @energia = 1000
+  @ciudad = Obera
+  
+  def self.energia
+    @energia 
+  end
+  
+  def self.ciudad
+    @ciudad
+  end
+  
+  def self.cantar!
+    'pri pri pri'
+  end
+  
+  def self.comer_lombriz!
+    @energia += 20
+  end
+  
+  def self.volar_en_circulos!
+    @energia -= 10
+  end
+  
+  def self.volar_hacia!(destino)
+    self.gastar_energia!(destino)
+    @ciudad = destino
+  end
+
+  def self.gastar_energia!(destino)
+    @energia -= (@ciudad.kilometro - destino.kilometro).abs / 2
+  end
+end
+
+------------------------------------------------
+
+
+
+
+

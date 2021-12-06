@@ -1,0 +1,146 @@
+Ejercicio 1: Muchas formas de decir lo mismo
+
+Con esta idea e invocando PonerN, creá un programa que ponga cinco bolitas negras, PERO sin escribir el número 5.
+
+program {
+  PonerN(3+2, Negro)
+}
+
+------------------------------------------------
+Ejercicio 2: La suma de las partes
+
+Definí un procedimiento PonerSuma(x, y) que reciba dos parámetros y ponga la cantidad de bolitas rojas que surge de sumar x e y.
+
+procedure PonerSuma(x, y) {
+  PonerN(x+y, Rojo)
+}
+
+-----------------------------------------------
+Ejercicio 3: ¿Qué se hace antes?
+
+Definí el procedimiento ContarGente(micros, autos, bicicletas) que a partir de la cantida de micros, autos y bicicletas que recibe como parámetro, haga las cuentas necesarias y refleje el resultado con bolitas de color verde.
+
+procedure ContarGente(micros, autos, bicicletas) {
+  
+ PonerN(40*micros+4*autos+1*bicicletas, Verde)
+  
+}
+
+------------------------------------------------
+Ejercicio 4: La carrera del salmón
+
+Escribí la solución en el editor y dale Enviar. Vas a ver cómo se mueve el cabezal...
+
+procedure MoverComoSalmon(direccion) {
+  Mover(opuesto(direccion))
+}
+
+------------------------------------------------
+Ejercicio 5: Dos pasos adelante, un paso atrás
+
+Definí el procedimiento CaminarDesconfiado(pasos) que simule el caminar de Carlos: debe recibir la cantidad de pasos que debería dar y recorrer la mitad. Siempre se mueve al Este.
+
+procedure CaminarDesconfiado(pasos) {
+  
+  MoverN(pasos div 2, Este)
+  
+}
+
+------------------------------------------------
+Ejercicio 6: Poner al lado
+
+Definí el procedimiento PonerAl(direccion, color).
+
+procedure PonerAl(direccion, color) {
+  Mover(direccion)
+  Poner(color)
+  Mover(opuesto(direccion))
+}
+
+------------------------------------------------
+Ejercicio 7: La línea que vuelve
+
+Valiéndote de tus nuevos conocimientos sobre expresiones, modificá el procedimiento Linea para que el cabezal quede en el lugar donde empezó.
+
+procedure Linea(direccion, color, longitud) {
+  repeat(longitud) {
+    Poner(color)
+    Mover(direccion)
+  }
+  MoverN(longitud, opuesto(direccion))
+}
+
+------------------------------------------------
+Ejercicio 8: Dibujando una L
+
+Descubrí cuál de las funciones nuevas tenés que invocar y definí el procedimiento Ele(direccion). No te preocupes por la posición inicial del cabezal, nosotros nos encargaremos de ubicarlo en el lugar correspondiente para que la L se pueda dibujar.
+
+procedure Ele(direccion) {
+  
+  Linea(direccion, Azul, 3)
+  Linea(siguiente(direccion), Azul, 3) 
+}
+
+------------------------------------------------
+Ejercicio 9: Previo a lo siguienteEjercicio 9: Previo a lo siguiente
+
+¿Qué tablero se consigue luego de invocar el siguiente procedimiento?
+
+procedure PonerMisterioso() {
+  Mover(siguiente(Este))
+  Poner(Negro)
+  Mover(opuesto(Oeste))
+  Poner(Negro)
+  Mover(previo(Oeste))
+  Poner(Negro)
+}
+
+4
+
+------------------------------------------------
+Ejercicio 10: Siga la flecha
+
+Definí el procedimiento Flecha(direccion) que dibuje una flecha roja en la dirección correspondiente. El cabezal empieza y debe quedar siempre en el centro, como se ve en los tableros de ejemplo.
+
+procedure Flecha(direccion) {
+  Mover(direccion)
+  Poner(Rojo)
+  
+  Mover(opuesto(direccion))
+  Mover(previo(direccion))
+  Poner(Rojo)
+  
+  Mover(opuesto(previo(direccion)))
+  Mover(siguiente(direccion))
+  Poner(Rojo)
+  
+  Mover(opuesto(siguiente(direccion)))
+}
+
+-------------------------------------------------
+Ejercicio 11: Copiando bolitas
+
+Invocando nroBolitas, definí el procedimiento CopiarVerdesEnRojas.
+
+procedure CopiarVerdesEnRojas() {
+  
+  PonerN(nroBolitas(Verde), Rojo) 
+}
+
+--------------------------------------------------
+Ejercicio 12: Sacando bolitas
+
+Definí SacarTodas(color), que recibe un color y saca todas las bolitas que hay de ese color (no debe hacer nada con el resto de los colores).
+
+procedure SacarTodas(color){
+  
+    SacarN(nroBolitas(color), color) 
+}
+
+-------------------------------------------------
+
+
+
+
+
+

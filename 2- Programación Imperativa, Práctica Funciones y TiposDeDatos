@@ -1,0 +1,211 @@
+Ejercicio 1: Comprando Hardware
+
+Definí la función cuantoCuesta que tome el número de pulgadas del monitor y la cantidad de memoria, y calcule el costo estimado de nuestra computadora.
+
+ cuantoCuesta(25, 8)
+4100
+
+function cuantoCuesta(pulgada, gb) {
+  return 60 * pulgada + 200 * gb + 1000;
+}
+
+-----------------------------------------------
+Ejercicio 2: ¿Me conviene?
+
+Definí la función meConviene, que nuevamente tome el número de pulgadas y cantidad de memoria y nos diga si nos conviene comprarla :
+
+ meConviene(25, 8)
+false // porque el monitor es demasiado chico
+ meConviene(42, 12)
+true // cumple las tres condiciones
+
+En la Biblioteca ya está definida la función cuantoCuesta lista para ser invocada.
+
+function meConviene(pulgadas, gb) {
+  return cuantoCuesta(pulgadas, gb) < 6000 && pulgadas >= 32 && gb >= 8; 
+}
+
+----------------------------------------------
+Ejercicio 3: Triangulos
+
+Definí las funciones perimetroTriangulo y areaTriangulo
+
+function perimetroTriangulo(lado1, lado2, lado3){
+return lado1 + lado2 + lado3;
+}
+
+function areaTriangulo(base, altura) {
+  return base * altura /2;
+}
+
+---------------------------------------------
+Ejercicio 4: Cuadrados
+
+Definí las funciones perimetroCuadrado y areaCuadrado
+
+function perimetroCuadrado (lado) {
+  return lado *4;
+}
+
+function areaCuadrado(lado) {
+  return lado * lado;
+}
+
+----------------------------------------------
+Ejercicio 5: ¿Está afinado?
+
+Definí una función estaAfinado, que reciba la frecuencia (un número) del la central, y retorne si dicha frecuencia es igual a 440Hz.
+
+ estaAfinado(440)
+true
+
+function estaAfinado(frecuencia) {
+  return frecuencia === 440;
+}
+
+----------------------------------------------
+Ejercicio 6: ¿Está cerca?
+
+Definí la función estaCerca
+
+function estaCerca(frecuencia) {
+return frecuencia >= 437 && frecuencia <= 443 && frecuencia !== 440;
+
+}
+
+----------------------------------------------
+Ejercicio 7: Cartelitos
+
+Definí la función escribirCartelito, que tome un título, un nombre y un apellido y forme un único string. Por ejemplo:
+
+ escribirCartelito("Dra.", "Ana", "Pérez")
+"Dra. Ana Pérez"
+
+function escribirCartelito(titulo, nombre, apellido) {
+  return titulo + " " + nombre + " " + apellido;
+}
+
+----------------------------------------------
+Ejercicio 8: Más Cartelitos
+
+Modificá la función escribirCartelito, de forma que se comporte como se describe arriba. Ejemplo:
+
+// cartelito corto
+ escribirCartelito("Lic.", "Tomás", "Peralta", true)
+"Lic. Peralta"
+
+// cartelito largo
+ escribirCartelito("Ing.", "Dana", "Velázquez", false)
+"Ing. Dana Velázquez"
+
+//modificá esta función
+function escribirCartelito(titulo, nombre, apellido, corto) {
+  if(corto) {
+    return titulo + " " + apellido;
+  }
+  else {
+    return titulo + " " + nombre + " " + apellido;
+  }
+}
+
+------------------------------------------------
+Ejercicio 9: Cartelitos óptimos
+
+Definí la función escribirCartelitoOptimo que tome un título, un nombre y un apellido, y utilizando escribirCartelito genere un cartelito corto o largo, según las reglas anteriores. Ejemplo:
+
+ escribirCartelitoOptimo("Ing.", "Carla", "Toledo")
+"Ing. Carla Toledo"
+ escribirCartelitoOptimo("Dr.", "Estanislao", "Schwarzschild")
+"Dr. Schwarzschild"
+
+ Te dejamos en la biblioteca la función escribirCartelito definida. ¡Usala cuando necesites!
+ 
+ function escribirCartelitoOptimo(titulo, nombre, apellido) {
+  return escribirCartelito(titulo, nombre, apellido, (longitud(nombre + apellido) > 15));
+}
+
+-------------------------------------------------
+Ejercicio 10: Cara o ceca
+
+Definí una función decisionConMoneda, que toma tres parámetros y retorna el segundo si el primero es "cara", o el tercero, si sale "ceca". Por ejemplo:
+
+ decisionConMoneda("cara", "pizzas", "empanadas")
+"pizzas"
+
+function decisionConMoneda(lado, decision1, decision2) {
+  if(lado === "cara") {
+    return decision1;
+  }
+  else {
+    return decision2;
+  }
+}
+
+-----------------------------------------------
+Ejercicio 11: ¡Envido!
+
+Definí una función valorEnvido, que tome un número de carta y retorne su valor de envido.
+
+ valorEnvido(12)
+0
+ valorEnvido(3)
+3
+
+function valorEnvido(carta) {
+  if(carta > 7) {
+    return 0;
+  }
+  else {
+    return carta;
+  }
+}
+
+---------------------------------------------
+Ejercicio 12: ¡Quiero retruco!
+
+Utilizando la función valorEnvido (que ya definimos por vos), definí la función puntosDeEnvidoTotales que tome los valores y palos de dos cartas y diga cuánto envido suman en total. Ejemplo:
+
+ puntosDeEnvidoTotales(1, "espadas", 4, "espadas")
+25
+ puntosDeEnvidoTotales(2, "copas", 3, "bastos")
+3
+
+function puntosDeEnvidoTotales(carta1, palo1, carta2, palo2) {
+  if(palo1 === palo2) {
+    return 20 + valorEnvido(carta1) + valorEnvido(carta2);
+  }
+  else {
+    return Math.max(valorEnvido(carta1), valorEnvido(carta2))
+  }
+}
+
+---------------------------------------------
+Ejercicio 13: ¡Quiero vale cuatro!
+
+Definí la función valorCantoTruco, que tome el canto y retorne cuántos puntos vale.
+
+ valorCantoTruco("retruco")
+3
+
+ Asumí que sólo te van a pasar como argumento un string que represente un canto de truco. Por ejemplo, no vamos a probar la función para el caso valorCantoTruco("zaraza")
+ 
+function valorCantoTruco (canto) {
+  if(canto === "truco") {
+    return 2;
+  }
+  if(canto === "retruco") {
+    return 3;
+  }
+  if(canto === "vale cuatro") {
+    return 4;
+  }
+}
+
+--------------------------------------------
+
+
+
+
+
+
+

@@ -1,0 +1,127 @@
+Ejercicio 4: Que comience el movimiento
+
+¿No nos creés? Escribí el código anterior en el editor y dale Enviar.
+
+program {
+  Mover(Norte)
+}
+
+------------------------------------------------------------------
+Ejercicio 5: Que comience el movimiento
+
+Creá un programa que en un tablero de 2x4 con el cabezal en el origen (la celda de abajo a la izquierda), mueva el cabezal tres veces hacia el norte:
+
+program {
+  Mover(Norte)
+  Mover(Norte)
+  Mover(Norte)
+}
+
+-------------------------------------------------------------------
+Ejercicio 6: Para todos lados
+
+Creá un programa que mueva el cabezal dos posiciones hacia el Este y una hacia el Sur, produciendo el siguiente efecto:
+
+Inicial		Final
+
+program{
+  Mover(Este)
+  Mover(Este)
+  Mover(Sur)
+}
+
+--------------------------------------------------------------------
+Ejercicio 7: El orden de las cosas
+
+Veamos si entendiste esto: creá otro programa que haga lo mismo que el de arriba (mover hacia el noreste), pero de manera distinta. Ojo: tiene que funcionar en un tablero de 2x2.
+
+program {
+  Mover(Este)
+  Mover(Norte) 
+}
+
+-------------------------------------------------------------------
+Ejercicio 8: Sí, esto también se puede romper
+
+¿Y cómo es esa forma? Descubrilo vos: partiendo del tablero que te mostramos acá abajo, creá un programa que provoque que el cabezal se salga fuera de los límites.
+
+program{
+  Mover(Sur)
+}
+
+------------------------------------------------------------------
+Ejercicio 9: Nuestras primeras bolitas
+
+¡Probá este programa! Escribí el código en el editor, envialo y verás lo que pasa al ejecutarlo sobre este tablero:
+
+program {
+  Poner(Rojo)
+}
+
+------------------------------------------------------------------
+Ejercicio 10: Más y más bolitas
+
+¡Escribí este programa en el editor y fijate cómo queda el tablero!
+
+program {
+  Poner(Rojo)
+  Poner(Rojo)
+  Poner(Azul)
+  Poner(Verde)
+  Poner(Rojo)
+}
+
+------------------------------------------------------------------
+Ejercicio 11: Poné tus primeras bolitas
+
+Ah, y ahora te toca a vos: creá un programa que ponga cuatro bolitas rojas y tres bolitas negras en la celda actual.
+
+program {
+  Poner(Rojo)
+  Poner(Rojo)
+  Poner(Rojo)
+  Poner(Rojo)
+  Poner(Negro)
+  Poner(Negro)
+  Poner(Negro)
+}
+
+-----------------------------------------------------------------
+Ejercicio 12: Sacar Bolitas
+
+Sabiendo esto, creá un programa que elimine sólo la bolita roja de este tablero. ¡Tené cuidado! Prestá atención a la posición del cabezal .
+
+program {
+  Mover(Sur)
+  Sacar(Rojo)
+}
+
+------------------------------------------------------------------
+Ejercicio 13: Cuando no hay bolitas
+
+¿Querés saber por qué? Intentá sacar una bolita verde o azul de este tablero y descubrilo.
+
+program{
+  Sacar(Azul)
+}
+
+------------------------------------------------------------------
+Ejercicio 14: Limpiar celda
+
+Un último esfuercito: usando Sacar, creá un programa que elimine todas las bolitas de este tablero:
+
+program{
+  Sacar(Azul)
+  Sacar(Negro)
+  Sacar(Rojo)
+  Sacar(Verde)
+}
+
+---------------------------------------------------------------
+
+
+
+
+
+
+

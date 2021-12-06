@@ -1,0 +1,122 @@
+Ejercicio 1: ¡Que el último apague la luz!
+
+Definí el procedimiento usarCierre para que podamos abrir y cerrar el cierre de una mochila.
+
+let mochilaAbierta = true;
+
+function usarCierre() {
+  mochilaAbierta= !mochilaAbierta;
+}
+
+-----------------------------------------
+Ejercicio 2: Negar no cuesta nada
+
+¡Ahora te toca a vos! Definí esMayorDeEdad, que recibe una edad, y luego esMenorDeEdad a partir de ella.
+
+function esMayorDeEdad(edad) {
+  return edad >=18;
+}
+
+function esMenorDeEdad(edad) {
+  return !esMayorDeEdad(edad);
+}
+
+-----------------------------------------
+Ejercicio 3: Los peripatéticos
+
+Definí una función esPeripatetico que tome la profesión de una persona, su nacionalidad y la cantidad de kilómetros que camina por día. Alguien es peripatético cuando es un filósofo griego y le gusta pasear (camina más de 2 kilómetros por día). Ejemplo:
+
+ esPeripatetico("filósofo", "griego", 5)
+true
+ esPeripatetico("profesor", "uruguayo", 1)
+false 
+
+function esPeripatetico(profesion, nacionalidad, kilometros) {
+  return profesion === "filósofo" && nacionalidad === "griego" && kilometros > 2;
+}
+
+------------------------------------------
+Ejercicio 6: Y ahora... ¿quién podrá ayudarnos?
+
+Definí las funciones esFinDeSemana y estaCerrado. Tené en cuenta que los días se reciben en minúscula:
+
+ estaCerrado(false, "sábado", 10)
+true //Porque es fin de semana
+
+ estaCerrado(true, "lunes", 10)
+true //Porque es feriado
+
+ estaCerrado(false, "martes", 20)
+true //Porque no está dentro del horario bancario
+
+ estaCerrado(false, "jueves", 11)
+ 
+ function esFinDeSemana(dia) {
+  return dia === "sabado" || dia === "domingo";
+}
+
+function estaCerrado(esFeriado, dia, horario) {
+  return esFeriado || esFinDeSemana(dia) || !dentroDeHorarioBancario(horario);
+}
+
+--------------------------------------------
+Ejercicio 7: Claroscuro
+
+¡Ahora te toca a vos! Definí la función tieneContraste. Para que la página tenga contraste tiene que tener el fondo claro y la letra no o bien tener la letra clara y el fondo no.
+
+function tieneContraste(colorLetra, colorPagina) {
+  return esTonoClaro (colorLetra) !== esTonoClaro (colorPagina); 
+}
+
+--------------------------------------------
+Ejercicio 9: ¡Hola! Mi nombre es Xor
+
+Veamos si se entiende: definí la función genérica xor, que tome dos booleanos y retorne el valor de verdad correspondiente.
+
+function xor(a,b) {
+  return (a && !b) || (!a && b);
+}
+
+---------------------------------------------
+Ejercicio 11: Un ejercicio sin precedentes
+
+Definí la función sePuedeConcentrar que recibe una bebida, su temperatura y un booleano que nos dice si Delfi está programando:
+
+ sePuedeConcentrar('té', 100, true)
+true
+
+ sePuedeConcentrar('mate', 70, true)
+false
+
+ sePuedeConcentrar('té', 95, false)
+false
+
+¡Intentá resolverlo en una única función! Después vamos a ver cómo quedaría si delegamos.
+
+function sePuedeConcentrar(bebida, grados, concentrar){
+  return (bebida=== "té" && grados>=95 && concentrar) ||(bebida=== "mate" && grados>=80 && concentrar);
+}
+
+---------------------------------------------
+Ejercicio 12: ¿Puedo subir?
+
+Definí la función de 3 parámetros puedeSubirse que recibe una altura de una persona en metros, si está acompañada y si tiene alguna afección cardíaca. Ejemplo:
+
+ puedeSubirse(1.7, false, true)
+false // no puede subirse
+      // porque aunque tiene mas de 1.5m, 
+      // tiene una afección cardíaca
+      
+function puedeSubirse(altura, acompañado, afeccionCardiaca) {
+  return ((altura >= 1.5) || (altura >= 1.2 && acompañado)) && !afeccionCardiaca;
+}
+
+-----------------------------------------------
+
+
+
+
+ 
+
+
+

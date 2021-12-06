@@ -1,0 +1,86 @@
+Ejercicio 2: Tu propio monumento
+
+¡Es tu momento del monumento! Guardá en las variables torreAzadi y monumentoNacionalALaBandera registros de esos monumentos, oriundos de las ciudades de Teherán, Irán y Rosario, Argentina respectivamente. ¿Te animás a investigar en qué año se terminaron de construir para completar ese campo? 
+
+let torreAzadi = {nombre: "Torre Azadi", locacion: "Teherán, Irán", anioDeConstruccion: 1971 };
+
+let monumentoNacionalALaBandera = {nombre: "Monumento Nacional a la bandera", locacion: "Rosario, Argentina", anioDeConstruccion: 1957}
+
+--------------------------------------
+Ejercicio 4: Temperatura de planeta
+
+Definí una función temperaturaDePlaneta que reciba como argumento un registro de planeta y retorne un string que indique su nombre y su temperatura promedio. ¡Tiene que funcionar para cualquier planeta!  Por ejemplo:
+
+ temperaturaDePlaneta(mercurio)
+"Mercurio tiene una temperatura promedio de 67 grados"
+ temperaturaDePlaneta(saturno)
+"Saturno tiene una temperatura promedio de -139 grados"
+ temperaturaDePlaneta(venus)
+"Venus tiene una temperatura promedio de 462 grados"
+
+function temperaturaDePlaneta(planeta) {
+  return planeta.nombre + " tiene una temperatura promedio de " + planeta.temperaturaPromedio + " grados";
+}
+
+----------------------------------------
+Ejercicio 5: Moviendo archivos
+
+¡Es tu turno! Definí el procedimiento moverArchivo, que recibe un registro y una nueva ruta y modifica el archivo con la nueva ruta.
+
+function moverArchivo(archivo, nuevaRuta) {
+  archivo.ruta = nuevaRuta;
+}
+
+-----------------------------------------
+Ejercicio 6: Registros de dos milenios
+
+Definí la función esDelMilenioPasado, que recibe un archivo y retorna un booleano.
+
+ esDelMilenioPasado({ ruta: "D:\fotonacimiento.jpg", creacion: "14/09/1989" })
+true
+
+function esDelMilenioPasado(archivo) {
+  return anio(archivo.creacion) < "2000";
+}
+
+-----------------------------------------
+Ejercicio 7: Postres complejos
+
+Definí la función masDificilDeCocinar, que recibe dos registros de postres como argumentos y retorna el que tiene más ingredientes de los dos.
+
+ masDificilDeCocinar(flanCasero, cheesecake)
+{ ingredientes: ["huevos", "leche", "azúcar", "vainilla"], tiempoDeCoccion: 50 }
+
+function masDificilDeCocinar(postre1, postre2) {
+  if(longitud(postre1.ingredientes) > longitud(postre2.ingredientes)) {
+    return postre1;
+  }
+  else {
+    return postre2;
+  }
+}
+
+------------------------------------------
+Ejercicio 9: 60 dulces minutos
+
+Definí el procedimiento agregarAPostresRapidos, que toma una lista con postres rápidos y un postre por parámetro. Si el tiempo de cocción es de una hora o menos, se agrega el registro a la lista.
+
+function agregarAPostresRapidos(postresRapidos, postre) {
+  if(postre.tiempoDeCoccion <= 60) {
+    agregar(postresRapidos, postre);
+  }
+}
+
+-----------------------------------------
+Ejercicio 11: ¡Azúcar!
+
+Definí un procedimiento endulzarMenu, que recibe un registro menú y le agrega azúcar a los ingredientes de su postre. Si ya tiene azúcar, no importa... ¡le agrega más! 
+
+function endulzarMenu(menuDelDia) {
+  agregar(menuDelDia.postre.ingredientes, "azúcar");
+}
+
+------------------------------------------
+
+
+

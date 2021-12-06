@@ -1,0 +1,88 @@
+Ejercicio 11: Tu primer programa con objetos
+
+Veamos si se entiende: escribí un primer programa que consista en hacer que Pepita coma y vuele hasta quedarse con 150 unidades de energía. Acordate que Pepita arranca con la energía en 100.
+
+# Escribí acá los mensajes que quieras mandarle a Pepita, uno debajo del otro.
+Pepita.energia
+
+Pepita.comer_lombriz!
+Pepita.comer_lombriz!
+Pepita.comer_lombriz!
+
+Pepita.volar_en_circulos!
+
+-------------------------------------------
+Ejercicio 12: ¿Quién te entiende?
+
+A Pepita ya la conocemos bien: canta, come, etc. Su amiga Norita, por otro lado, no aprendió nunca a decirnos su energía. Y Mercedes es una reconocida cantora.
+
+Usando la consola, averiguá cuál es la interfaz de cada una de ellas, y completá el listado de mensajes que cada una entiende en el editor.
+
+interfaz_pepita = %w(
+  energia
+  cantar!
+  comer_lombriz!
+  volar_en_circulos!
+)
+  
+interfaz_norita = %w(
+  cantar!
+  comer_lombriz!
+  volar_en_circulos!
+)
+  
+interfaz_mercedes = %w(
+  cantar!
+)
+
+-------------------------------------------
+Ejercicio 13: Interfaces compartidas
+
+Completá el código en el editor.
+
+# ¿Qué interfaz comparten Mercedes y Norita?
+interfaz_compartida_entre_mercedes_y_norita = %w(
+     cantar!
+)
+
+# ¿Qué interfaz comparten Pepita y Norita?
+interfaz_compartida_entre_pepita_y_norita = %w(
+  cantar!
+  comer_lombriz!
+  volar_en_circulos!
+)
+
+# ¿Qué interfaz comparten Mercedes, Norita y Pepita?
+interfaz_compartida_entre_todas = %w(
+  cantar!
+)
+
+----------------------------------------------
+Ejercicio 15: Más argumentos
+
+Veamos si va quedando claro: escribí un programa que haga que Pepita coma 500 gramos de alpiste, vuele a Iruya, y finalmente vuelva a Obera.
+
+Pepita.comer_alpiste! 500
+Pepita.volar_hacia!Iruya
+Pepita.volar_hacia!Obera
+
+----------------------------------------------
+Ejercicio 17: Recapitulando
+
+Vamos a enviar algunos mensajes para terminar de cerrar la idea. Te toca escribir un programa que haga que Pepita:
+
+Coma 90 gramos de alpiste. 
+Vuele a Iruya. 
+Finalmente, coma tanto alpiste como el 10% de la energía que le haya quedado. 
+Este programa tiene que andar sin importar con cuanta energía arranque Pepita.
+
+Pepita.comer_alpiste! 90
+Pepita.volar_hacia!Iruya
+Pepita.comer_alpiste! (Pepita.energia*0.1)
+
+----------------------------------------------
+
+
+
+
+

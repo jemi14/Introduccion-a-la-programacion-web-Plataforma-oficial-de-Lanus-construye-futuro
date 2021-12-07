@@ -1,0 +1,396 @@
+Ejercicio 1: Aflojá con el aparatito
+
+Veamos si se entiende: definí la clase Celular y también los métodos initialize, utilizar! y cargar_a_tope!.
+
+class Celular
+  def initialize
+    @bateria = 100
+  end
+  
+  def bateria
+    @bateria
+  end
+  
+  def utilizar!(minutos)
+    @bateria -= minutos * 0.5
+  end
+  
+  def cargar_a_tope!
+    @bateria = 100
+  end
+  
+end
+
+------------------------------------------------
+Ejercicio 2: Notebook
+
+Definí la clase Notebook, que sepa entender los mensajes initialize, utilizar! y cargar_a_tope!.
+
+class Notebook
+  def initialize
+    @bateria = 100
+  end
+
+  def bateria
+    @bateria
+  end
+
+  def utilizar!(minutos)
+    @bateria -= minutos
+  end
+
+  def cargar_a_tope!
+     @bateria = 100
+  end
+end
+
+-----------------------------------------------
+Ejercicio 3: No repitan conmigo
+
+¿Qué métodos son iguales en ambas clases?
+
+initialize
+cargar_a_tope!
+
+-----------------------------------------------
+Ejercicio 4: Su superclase
+
+Definí la clase Dispositivo y modificá las clases que definiste anteriormente para evitar que haya métodos repetidos entre Celular y Notebook. Es importante que en el editor definas arriba la superclase y abajo sus subclases.
+
+class Dispositivo
+  def initialize
+    @bateria = 100
+  end
+  
+  def bateria
+    @bateria
+  end
+  
+  def cargar_a_tope!
+    @bateria = 100
+  end
+  
+end
+
+class Celular < Dispositivo
+  def utilizar!(minutos)
+    @bateria -= minutos * 0.5
+  end
+end
+
+class Notebook < Dispositivo
+  def utilizar!(minutos)
+    @bateria -= minutos
+  end
+end
+
+-----------------------------------------------
+Ejercicio 5: Arte abstracto
+
+Sabiendo esto, marcá las opciones correctas.
+
+Dispositivo es una clase abstracta.
+Celular es una clase concreta.
+Notebook es una clase concreta.
+Celular hereda de Dispositivo.
+Notebook hereda de Dispositivo.
+Las clases abstractas proveen comportamiento a sus subclases.
+Las clases concretas se utilizan para crear instancias.
+
+-------------------------------------------------
+Ejercicio 6: ¿Me estás cargando?
+
+Definí el método descargado? en donde corresponda.
+
+class Dispositivo
+  def initialize
+    @bateria = 100
+  end
+  
+  def bateria
+    @bateria
+  end
+  
+  def cargar_a_tope!
+    @bateria = 100
+  end
+  
+  def descargado?
+    @bateria <= 20
+  end
+  
+end
+
+class Celular < Dispositivo
+  def utilizar!(minutos)
+    @bateria -= minutos * 0.5
+  end
+end
+
+class Notebook < Dispositivo
+  def utilizar!(minutos)
+    @bateria -= minutos
+  end
+end
+
+----------------------------------------
+Ejercicio 8: Vamos de paseo
+
+Definí las clases Moto, Auto y MedioDeTransporte y hace que las dos primeras hereden de la tercera. También definí los métodos initialize, recorrer!, cargar_combustible!, entran? y maximo_personas donde correspondan.
+
+class MedioDeTransporte
+  
+  def initialize(cant_combustible)
+    @combustible = cant_combustible
+  end
+  
+  def cargar_combustible!(cant_combustible)
+    @combustible += cant_combustible
+  end
+  
+  def entran?(cant_personas)
+    cant_personas <= maximo_personas
+  end
+end
+
+class Auto < MedioDeTransporte
+  def maximo_personas
+    5
+  end
+  
+  def recorrer!(kilometro)
+    @combustible -= kilometro/2
+  end
+end
+
+class Moto < MedioDeTransporte
+  def maximo_personas
+    2
+  end
+  
+  def recorrer!(kilometro)
+    @combustible -= kilometro
+  end
+end
+
+---------------------------------------------
+Ejercicio 9: Subí nomás
+
+Definí la clase Colectivo con sus métodos correspondientes. No te olvides que los colectivos son medios de transporte.
+
+class Colectivo < MedioDeTransporte
+  
+  def maximo_personas
+    20
+  end
+  
+  def recorrer!(kilometro)
+    @combustible -= kilometro*2
+  end
+end
+
+----------------------------------------------
+Ejercicio 10: Inconsciente colectivo
+
+Redefiní los métodos initialize y entran? en la clase Colectivo.
+
+class Colectivo < MedioDeTransporte
+  
+  def initialize
+    @combustible = 100
+    @pasajeros = 0
+  end
+  
+  def recorrer!(distancia_kms)
+    @combustible -= distancia_kms*2
+  end
+  
+  def entran? (personas)
+    personas <= 35
+  end
+  
+  def cargar_combustible!(cant_combustible)
+    super + @pasajeros = 0
+  end 
+end 
+
+---------------------------------------------------
+Ejercicio 11: Es un trabajo para super
+
+¡Ahora te toca a vos! Redefiní el método cargar_combustible! en Colectivo, de modo que haga lo mismo que cualquier MedioDeTransporte y además se quede sin pasajeros. Recordá utilizar super para evitar repetir lógica.
+
+class Colectivo < MedioDeTransporte
+  
+  def initialize
+    @combustible = 100
+    @pasajeros = 0
+  end
+  
+  def recorrer!(distancia_kms)
+    @combustible -= distancia_kms*2
+  end
+  
+  def entran? (personas)
+    personas <= 35
+  end
+  
+  def cargar_combustible!(cant_combustible)
+    super + @pasajeros = 0
+  end 
+end 
+
+---------------------------------------------------
+Ejercicio 12: El regreso de los zombis
+
+¿Te animás? ¡Marcá las respuestas correctas!
+
+Zombi debe definir el método gritar
+Zombi debe definir el método salud
+Zombi debe definir el método sin_vida?
+Zombi debe definir el método recibir_danio!
+Zombi debe definir el método sabe_correr?
+SuperZombi debe definir el método recibir_danio!
+SuperZombi debe definir el método sabe_correr?
+SuperZombi debe definir el método regenerarse!
+
+----------------------------------------------------
+Ejercicio 13: Herencia zombie
+
+Veamos si se entiende: hacé que la clase SuperZombi herede de Zombi y modificala para que defina únicamente los métodos cuyo comportamiento varía respecto de Zombi. ¡Notá que la inicialización también es igual en ambas clases!
+
+class Zombi
+  def initialize(salud_inicial)
+    @salud = salud_inicial
+  end
+  
+  def salud
+    @salud
+  end
+  
+  def gritar
+    "¡agrrrg!"
+  end
+  
+  def sabe_correr?
+    false
+  end
+  
+  def sin_vida?
+    @salud == 0
+  end
+  
+  def recibir_danio!(puntos)
+    @salud = [@salud - puntos * 2, 0].max
+  end
+end
+
+class SuperZombi < Zombi
+  def sabe_correr?
+    true
+  end
+  
+  def recibir_danio!(puntos)
+    @salud = [@salud - puntos * 3, 0]. max
+  end
+  
+  def regenerarse!
+    @salud = 100
+  end
+end
+
+-------------------------------------------------------
+Ejercicio 14: Concretemos la herencia
+
+Definí el método descansar! en donde corresponda.
+
+class Zombi
+  def initialize(salud_inicial)
+    @salud = salud_inicial
+  end
+  
+  def salud
+    @salud
+  end
+  
+  def gritar
+    "¡agrrrg!"
+  end
+  
+  def sabe_correr?
+    false
+  end
+  
+  def sin_vida?
+    @salud == 0
+  end
+  
+  def recibir_danio!(puntos)
+    @salud = [@salud - puntos * 2, 0].max
+  end
+  
+  def descansar!(minutos)
+    @salud += minutos
+  end
+  
+end
+
+class SuperZombi < Zombi
+  def sabe_correr?
+    true
+  end
+  
+  def recibir_danio!(puntos)
+    @salud = [@salud - puntos * 3, 0]. max
+  end
+  
+  def regenerarse!
+    @salud = 100
+  end
+end
+
+-----------------------------------------------------
+Ejercicio 15: La defensa
+
+Último esfuerzo: definí una clase abstracta Persona que agrupe el comportamiento que se repite y hacé que las clases Sobreviviente y Aliado hereden de ella.
+
+class Persona
+  def energia
+    @energia
+  end
+  
+  def atacar!(zombi, danio)
+    zombi.recibir_danio! danio
+  end
+end
+
+class Sobreviviente < Persona
+  def initialize
+    @energia = 1000
+  end
+  
+  def beber!
+    @energia *= 1.25
+  end
+end
+
+class Aliado < Persona
+  def initialize
+    @energia = 500
+  end
+  
+  def beber!
+    @energia *= 1.10
+  end
+  
+  def atacar!(zombi, danio)
+    zombi.recibir_danio! danio
+    super + @energia *= 0.95
+  end
+end
+
+------------------------------------------------
+
+
+
+
+
